@@ -1,0 +1,3 @@
+../lib/source/key.c:22:6:keyInit	8	static
+../lib/source/key.c:28:10:keyRead	16	static
+../lib/source/key.c:42:6:keyResponse	16	static

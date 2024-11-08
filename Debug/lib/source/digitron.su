@@ -1,0 +1,6 @@
+../lib/source/digitron.c:33:6:digitronPutBuf	16	static
+../lib/source/digitron.c:39:6:putData	24	static
+../lib/source/digitron.c:47:6:sftClk	8	static
+../lib/source/digitron.c:53:6:latchClk	8	static
+../lib/source/digitron.c:59:6:chooseDigitron	24	static
+../lib/source/digitron.c:68:6:displayToken	16	static

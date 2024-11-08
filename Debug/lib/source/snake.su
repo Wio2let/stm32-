@@ -1,0 +1,12 @@
+../lib/source/snake.c:133:22:createSnakeNode	24	static
+../lib/source/snake.c:146:22:addBlock	24	static
+../lib/source/snake.c:160:6:recordStep	4	static
+../lib/source/snake.c:165:6:snakeDisplay	24	static
+../lib/source/snake.c:174:6:snakeInit	8	static
+../lib/source/snake.c:184:6:snakeBlockUpdate	32	static
+../lib/source/snake.c:201:6:snakeDirectionUpdated	24	static
+../lib/source/snake.c:235:6:snakePositionUpdated	40	static
+../lib/source/snake.c:252:6:copySnakeReset	24	static
+../lib/source/snake.c:272:6:foodGen	24	static
+../lib/source/snake.c:293:6:foodDisplay	8	static
+../lib/source/snake.c:301:6:ifAteFood	24	static

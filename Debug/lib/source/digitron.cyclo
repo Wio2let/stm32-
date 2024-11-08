@@ -1,0 +1,6 @@
+../lib/source/digitron.c:33:6:digitronPutBuf	1
+../lib/source/digitron.c:39:6:putData	2
+../lib/source/digitron.c:47:6:sftClk	1
+../lib/source/digitron.c:53:6:latchClk	1
+../lib/source/digitron.c:59:6:chooseDigitron	2
+../lib/source/digitron.c:68:6:displayToken	1
