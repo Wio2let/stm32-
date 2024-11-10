@@ -34,6 +34,7 @@ extern "C" {
 
 
 #include "digitron.h"
+#include "beep.h"
 #include "key.h"
 #include "led.h"
 #include "snake.h"

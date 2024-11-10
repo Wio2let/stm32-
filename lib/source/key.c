@@ -21,7 +21,6 @@ static enum KEY key = KEY_NULL;
 
 void keyInit(void){
 	HAL_TIM_Base_Start_IT(&htim2);
-
 }
 
 /*---------读取按键值---------------*/
@@ -107,8 +106,6 @@ void keyResponse(){
 		}
 		recordStep();
 		key = KEY_NULL;
-
-
 }
 }
 

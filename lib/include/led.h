@@ -18,10 +18,9 @@
 #define LED_6   0x40
 #define LED_7   0x80
 #define LED_ALL 0xFF
-
+extern uint8_t score;
 void ledOn(uint8_t val);
 void ledOff(uint8_t val);
 void ledToggle(uint8_t val);
-
-
+void ledScore(uint8_t);
 #endif /* LED_H_ */

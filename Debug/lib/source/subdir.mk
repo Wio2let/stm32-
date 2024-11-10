@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../lib/source/beep.c \
 ../lib/source/digitron.c \
 ../lib/source/key.c \
 ../lib/source/led.c \
@@ -13,6 +14,7 @@ C_SRCS += \
 ../lib/source/zoord.c 
 
 OBJS += \
+./lib/source/beep.o \
 ./lib/source/digitron.o \
 ./lib/source/key.o \
 ./lib/source/led.o \
@@ -21,6 +23,7 @@ OBJS += \
 ./lib/source/zoord.o 
 
 C_DEPS += \
+./lib/source/beep.d \
 ./lib/source/digitron.d \
 ./lib/source/key.d \
 ./lib/source/led.d \
@@ -36,7 +39,7 @@ lib/source/%.o lib/source/%.su lib/source/%.cyclo: ../lib/source/%.c lib/source/
 clean: clean-lib-2f-source
 
 clean-lib-2f-source:
-	-$(RM) ./lib/source/digitron.cyclo ./lib/source/digitron.d ./lib/source/digitron.o ./lib/source/digitron.su ./lib/source/key.cyclo ./lib/source/key.d ./lib/source/key.o ./lib/source/key.su ./lib/source/led.cyclo ./lib/source/led.d ./lib/source/led.o ./lib/source/led.su ./lib/source/mode.cyclo ./lib/source/mode.d ./lib/source/mode.o ./lib/source/mode.su ./lib/source/snake.cyclo ./lib/source/snake.d ./lib/source/snake.o ./lib/source/snake.su ./lib/source/zoord.cyclo ./lib/source/zoord.d ./lib/source/zoord.o ./lib/source/zoord.su
+	-$(RM) ./lib/source/beep.cyclo ./lib/source/beep.d ./lib/source/beep.o ./lib/source/beep.su ./lib/source/digitron.cyclo ./lib/source/digitron.d ./lib/source/digitron.o ./lib/source/digitron.su ./lib/source/key.cyclo ./lib/source/key.d ./lib/source/key.o ./lib/source/key.su ./lib/source/led.cyclo ./lib/source/led.d ./lib/source/led.o ./lib/source/led.su ./lib/source/mode.cyclo ./lib/source/mode.d ./lib/source/mode.o ./lib/source/mode.su ./lib/source/snake.cyclo ./lib/source/snake.d ./lib/source/snake.o ./lib/source/snake.su ./lib/source/zoord.cyclo ./lib/source/zoord.d ./lib/source/zoord.o ./lib/source/zoord.su
 
 .PHONY: clean-lib-2f-source
 

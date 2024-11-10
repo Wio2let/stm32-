@@ -10,5 +10,5 @@
 ../Core/Src/stm32f4xx_it.c:208:6:TIM2_IRQHandler	1
 ../Core/Src/stm32f4xx_it.c:225:6:USART1_IRQHandler	1
 ../Core/Src/stm32f4xx_it.c:239:6:TIM5_IRQHandler	1
-../Core/Src/stm32f4xx_it.c:257:6:DMA2_Stream2_IRQHandler	1
-../Core/Src/stm32f4xx_it.c:271:6:DMA2_Stream7_IRQHandler	1
+../Core/Src/stm32f4xx_it.c:260:6:DMA2_Stream2_IRQHandler	1
+../Core/Src/stm32f4xx_it.c:274:6:DMA2_Stream7_IRQHandler	1

@@ -6,7 +6,7 @@
  */
 #define SNAKE_GLOBAL
 #include "snake.h"
-
+#include "led.h"
 
 
 
@@ -16,7 +16,8 @@ uint8_t foodDispFlag = 0;
 uint8_t repeatFlag = 0;
 static uint8_t randNum = 0;
 static uint8_t randNumSec = 0;
-static Point2D coordinate[48] = {{0}};
+
+extern enum MODE mode;
 typedef struct {
     uint8_t newIndex;  // 新的移动方向
     uint8_t nextSegment;    // 下一个段的值
@@ -183,14 +184,9 @@ void snakeInit(void) {
 /*-------------------更新每个块的移动-----------------------------*/
 void snakeBlockUpdate(struct SNAKE_STATUS* snake){
 	struct SNAKE_STATUS* currentBlock = snake;  // 使用一个临时指针遍历
-	uint16_t i = 0;
 	do{
-
-
 		displayToken(currentBlock->position.n, currentBlock->position.section);
-		coordinate[i] = get_segment_coordinates(currentBlock->position.n, currentBlock->position.section, currentBlock->towards);
 		currentBlock = currentBlock->next;
-		i++;
 		//HAL_Delay(0.1);
 	} while (currentBlock != NULL);
 
@@ -242,6 +238,7 @@ void snakePositionUpdated(struct SNAKE_STATUS* snake_main, struct SNAKE_STATUS* 
     while(currentBlock->next != NULL){
     	currentBlock = currentBlock->next;
     	currentBlock->position = lastBlock->position;
+    	currentBlock->towards = lastBlock->towards;
     	lastBlock =  lastBlock->next;
     }
 }
@@ -303,8 +300,11 @@ void ifAteFood(struct SNAKE_STATUS* snake_main, struct SNAKE_STATUS* snake_copy)
 	struct SNAKE_STATUS* lastBlock = snake_copy;
 
 	if(randNum==currentBlock->position.n && ((0x01 <<randNumSec) == currentBlock->position.section) ){
+
 		foodGenFlag = 0;
 		foodDispFlag = 1;
+		score++;
+
 		while(lastBlock->next!= NULL){
 			lastBlock = lastBlock->next;
 		}
@@ -312,7 +312,31 @@ void ifAteFood(struct SNAKE_STATUS* snake_main, struct SNAKE_STATUS* snake_copy)
 
 	}
 
+
+}
+/**判断蛇头是否撞墙一段时间
+ * 即第二段蛇身是否与蛇头重合
+ */
+void ifHitWall(struct SNAKE_STATUS* snake_main){
+	struct SNAKE_STATUS* currentBlock = snake_main;
+	struct SNAKE_STATUS* lastBlock = currentBlock->next;
+	if(lastBlock->position.n == currentBlock->position.n && lastBlock->position.section == currentBlock->position.section){
+		mode = END;
+	}
 }
 
+void ifHitSelf(struct SNAKE_STATUS* snake_main){
+	struct SNAKE_STATUS* currentBlock = snake_main;
+	Point2D head = get_segment_coordinates(currentBlock->position.n, currentBlock->position.section, currentBlock->towards);
+	while(currentBlock->next != NULL){
+		currentBlock = currentBlock->next;
+		Point2D body = get_segment_coordinates(currentBlock->position.n, currentBlock->position.section, currentBlock->towards);
+		if((body.x == head.x) && (body.y == head.y)){
+			mode = END;
+			break;
+		}
+	}
+
+}
 
 

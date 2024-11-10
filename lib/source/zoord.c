@@ -6,7 +6,7 @@
  */
 #define COORD_GLOBAL
 #include "zoord.h"
-
+#include "math.h"
 
 // 定义每个段的映射关系表
 
@@ -51,10 +51,9 @@ const SegmentMapping segment_map[] = {
 
 // 获取段的坐标
 Point2D get_segment_coordinates(uint8_t digit, uint8_t segment, Direction direction) {
-    Point2D result = {-1, -1};  // 默认无效坐标
+    Point2D result = {0, 0};  // 默认无效坐标
+    segment = (uint8_t)log2(segment);
 
-    // 检查段号是否有效
-    if(segment >= 7) return result;
 
     // 查找方向对应的坐标索引
     uint8_t coord_index = -1;
@@ -69,8 +68,12 @@ Point2D get_segment_coordinates(uint8_t digit, uint8_t segment, Direction direct
     if(coord_index != -1) {
         result = segment_map[segment].coords[coord_index];
         // 根据数码管序号偏移坐标
-        result.x += digit;  // 假设数码管间距为3个单位
+        result.x += 2*digit;  // 假设数码管间距为3个单位
     }
+
+
+
+
 
     return result;
 }

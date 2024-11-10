@@ -4,3 +4,6 @@
 ../lib/source/digitron.c:53:6:latchClk	8	static
 ../lib/source/digitron.c:59:6:chooseDigitron	24	static
 ../lib/source/digitron.c:68:6:displayToken	16	static
+../lib/source/digitron.c:78:6:showStart	8	static
+../lib/source/digitron.c:93:6:showPause	8	static
+../lib/source/digitron.c:104:6:showEnd	8	static

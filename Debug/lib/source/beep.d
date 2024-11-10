@@ -1,4 +1,5 @@
-Core/Src/stm32f4xx_hal_msp.o: ../Core/Src/stm32f4xx_hal_msp.c \
+lib/source/beep.o: ../lib/source/beep.c \
+ D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -28,7 +29,6 @@ Core/Src/stm32f4xx_hal_msp.o: ../Core/Src/stm32f4xx_hal_msp.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/digitron.h \
- D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/key.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/led.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/snake.h \
@@ -36,6 +36,7 @@ Core/Src/stm32f4xx_hal_msp.o: ../Core/Src/stm32f4xx_hal_msp.c \
  D:/university/workspace_1.16.0/MiniGame/lib/include/shared.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/mode.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/zoord.h
+D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -66,7 +67,6 @@ Core/Src/stm32f4xx_hal_msp.o: ../Core/Src/stm32f4xx_hal_msp.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/digitron.h:
-D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/key.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/led.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/snake.h:

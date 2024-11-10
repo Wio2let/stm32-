@@ -45,4 +45,6 @@ void copySnakeReset(struct SNAKE_STATUS*, struct SNAKE_STATUS*);
 void foodGen(struct SNAKE_STATUS*);
 void foodDisplay(void);
 void ifAteFood(struct SNAKE_STATUS*, struct SNAKE_STATUS*);
+void ifHitWall(struct SNAKE_STATUS* snake_main);
+void ifHitSelf(struct SNAKE_STATUS* snake_main);
 #endif /* SNAKE_H_ */

@@ -19,10 +19,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "usart.h"
-#include "stdio.h"
-/* USER CODE BEGIN 0 */
-uint8_t	rxData[50];
 
+/* USER CODE BEGIN 0 */
+#include <stdio.h>
+#include "mode.h"
+uint8_t	rxData[50];
+extern enum MODE mode;
+uint8_t dataLength = 0;
 
 /* USER CODE END 0 */
 
@@ -166,10 +169,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 
 {
-	if(rxData[0]=='['){
-	    	 ledToggle(LED_ALL);
-	    	}
-    printf("Transmit Successes!\r\n");
+
 }
 
 
@@ -180,8 +180,43 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t size)
 
     if (huart->Instance == USART1)
     {
-
-    	HAL_UART_Transmit_DMA(&huart1, rxData, size);
+    	dataLength = size;
+    	if(rxData[0] =='[' && rxData[dataLength-1] == ']'){
+    		switch(rxData[1]){
+    		case '0':
+    			mode = START;
+    			break;
+    		case '1':
+    			mode = RUNNING;
+    			break;
+    		case '2':
+    			mode = PAUSE;
+    			break;
+    		case '3':
+    			mode = END;
+    			break;
+    		default:
+    			break;
+    		}
+    	}
+    	if(rxData[0] =='[' && rxData[dataLength-1] == ']'){
+    	    		switch(rxData[2]){
+    	    		case '0':
+    	    			difficulty = EASY;
+    	    			break;
+    	    		case '1':
+    	    			difficulty = NORMAL;
+    	    			break;
+    	    		case '2':
+    	    			difficulty = HARD;
+    	    			break;
+    	    		default:
+    	    			break;
+    	    		}
+    	    	}
+    	else{
+    		printf("Transmit ERROR!\r\n");
+    		 }
     	HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rxData, sizeof(rxData));
     	__HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
 

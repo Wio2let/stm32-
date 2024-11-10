@@ -11,7 +11,7 @@ struct GPIO_LED{
 	GPIO_TypeDef* port;
 	uint16_t pin;
 };
-
+uint8_t score = 0;
 const struct GPIO_LED led[] = {
 	{GPO_LED_0_GPIO_Port, GPO_LED_0_Pin},
 	{GPO_LED_1_GPIO_Port, GPO_LED_1_Pin},
@@ -49,4 +49,9 @@ void ledToggle(uint8_t val){
 				if(val & (0x01 << i))
 					{HAL_GPIO_TogglePin(led[i].port, led[i].pin);}
 			}
+}
+
+void ledScore(uint8_t score){
+	ledOff(score-1);
+	ledOn(score);
 }

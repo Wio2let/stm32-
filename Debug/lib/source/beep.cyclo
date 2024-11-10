@@ -1,0 +1,3 @@
+../lib/source/beep.c:3:6:beepInit	1
+../lib/source/beep.c:6:6:beepStop	1
+../lib/source/beep.c:10:6:eatMusic	2

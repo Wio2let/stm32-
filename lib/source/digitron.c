@@ -72,7 +72,40 @@ void displayToken(uint8_t n, uint8_t section) {
     chooseDigitron(n);
 
 }
+/*显示开始界面
+ *
+ */
+void showStart(){
+	 displayToken(0, 0x40);
+	 displayToken(1, 0x40);
+	 displayToken(2, 0x76);
+	 displayToken(3, 0x79);
+	 displayToken(4, 0x38);
+	 displayToken(5, 0x38);
+	 displayToken(6, 0x3f);
+	 displayToken(7, 0x40);
+}
 
 
+/*显示暂停界面
+ *
+ */
+void showPause(){
+	 displayToken(2, 0x73);
+	 displayToken(3, 0x77);
+	 displayToken(4, 0x3E);
+	 displayToken(5, 0x6D);
+	 displayToken(6, 0x79);
+}
+
+/*显示Lose
+ *
+ */
+void showEnd(){
+	 displayToken(2, 0x38);
+	 displayToken(3, 0x3f);
+	 displayToken(4, 0x6D);
+	 displayToken(5, 0x79);
+}
 
 

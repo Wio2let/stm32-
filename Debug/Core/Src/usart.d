@@ -29,6 +29,7 @@ Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/digitron.h \
  ../Core/Inc/main.h \
+ D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/key.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/led.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/snake.h \
@@ -68,6 +69,7 @@ Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/digitron.h:
 ../Core/Inc/main.h:
+D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/key.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/led.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/snake.h:

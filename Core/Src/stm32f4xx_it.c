@@ -239,8 +239,11 @@ void USART1_IRQHandler(void)
 void TIM5_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM5_IRQn 0 */
+
   snakePositionUpdated(mainSnake, copySnake);
+  ifHitSelf(mainSnake);
   ifAteFood(mainSnake, copySnake);
+  ifHitWall(mainSnake);
   recordStep();
   copySnakeReset(mainSnake, copySnake);
 

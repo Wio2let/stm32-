@@ -28,6 +28,7 @@ lib/source/digitron.o: ../lib/source/digitron.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/key.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/led.h \
  D:/university/workspace_1.16.0/MiniGame/lib/include/snake.h \
@@ -65,6 +66,7 @@ D:/university/workspace_1.16.0/MiniGame/lib/include/digitron.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+D:/university/workspace_1.16.0/MiniGame/lib/include/beep.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/key.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/led.h:
 D:/university/workspace_1.16.0/MiniGame/lib/include/snake.h:

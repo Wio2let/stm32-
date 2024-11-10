@@ -100,16 +100,17 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM5_Init();
   MX_USART1_UART_Init();
+  MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
+  extern enum MODE mode;
 
   snakeInit();
 
   keyInit();
-  HAL_TIM_Base_Start_IT(&htim5);
-  uint8_t mode = RUNNING;
+
 
   HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rxData, sizeof(rxData));
-  __HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);		//关闭传输过半触发的中断
+  __HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);		//关闭传输过半触发的中�????
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -118,28 +119,44 @@ int main(void)
   {
 	 switch(mode){
 	 case START:
-
+		 HAL_TIM_Base_Stop_IT(&htim5);
+		 showStart();
 		 break;
 	 case PAUSE:
-		 displayToken(2, 0x73);
-		 displayToken(3, 0x77);
-		 displayToken(4, 0x3E);
-		 displayToken(5, 0x6D);
-		 displayToken(6, 0x79);
+		 HAL_TIM_Base_Stop_IT(&htim5);
+		 showPause();
 		 break;
 	 case RUNNING:
-		 HAL_Delay(0.5);
+		 switch(difficulty){
+		 case EASY:
+			 __HAL_TIM_SET_AUTORELOAD(&htim5, 1999);
+			 break;
+		 case NORMAL:
+			 __HAL_TIM_SET_AUTORELOAD(&htim5, 999);
+			 break;
+		 case HARD:
+			 __HAL_TIM_SET_AUTORELOAD(&htim5, 99);
+			 break;
+		 default:
+			 break;
+			 }
+		 ledScore(score);
+		 HAL_TIM_Base_Start_IT(&htim5);
+		 //HAL_Delay(0.5);
 		 snakeBlockUpdate(mainSnake);
 		 if(!foodGenFlag){
 				foodGen(mainSnake);
-			 }
+				beepInit();
+				eatMusic();
+
+		 }
+		 beepStop();
 		 foodDisplay();
+
 		 break;
 	 case END:
-		 displayToken(2, 0x38);
-		 displayToken(3, 0x3f);
-		 displayToken(4, 0x6D);
-		 displayToken(5, 0x79);
+		 HAL_TIM_Base_Stop_IT(&htim5);
+		 showEnd();
 		 break;
 	 default:
 		 break;
